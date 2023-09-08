@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coffee_shop/screens/welcome_screen.dart';
+import 'package:coffee_shop/screens/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFF212325),
       ),
-      home: WelcomeScreen(),
+      home: Welcome(),
     );
   }
 }
