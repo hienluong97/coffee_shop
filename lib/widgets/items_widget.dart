@@ -1,3 +1,4 @@
+import "package:coffee_shop/screens/single_item_screen.dart";
 import "package:flutter/material.dart";
 
 class ItemsWidget extends StatelessWidget {
@@ -33,7 +34,14 @@ class ItemsWidget extends StatelessWidget {
             child: Column(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SingleItemScreen(img[i]),
+                      ),
+                    );
+                  },
                   child: Container(
                     margin: const EdgeInsets.all(10),
                     child: Image.asset(
@@ -46,16 +54,54 @@ class ItemsWidget extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
-                  child: Container(
+                  child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      img[i],
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                    child: Column(
+                      children: [
+                        Text(
+                          img[i],
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          "Best coffee",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.white60),
+                        ),
+                      ],
                     ),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "30\$",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: const Color(0xFFE57734),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: const Icon(
+                            Icons.add,
+                            size: 20,
+                          ),
+                        )
+                      ]),
                 )
               ],
             ),
